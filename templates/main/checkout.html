@@ -28,12 +28,12 @@
                     <div>
                         <label for="first-name" class="text-gray-600">First Name <span
                                 class="text-primary">*</span></label>
-                        <input type="text" name="first-name" id="first-name" class="input-box" value="{{user.first_name}}">
+                        <input type="text" name="first_name" id="first-name" class="input-box" value="{{user.first_name}}">
                     </div>
                     <div>
                         <label for="last-name" class="text-gray-600">Last Name <span
                                 class="text-primary">*</span></label>
-                        <input type="text" name="last-name" id="last-name" class="input-box" value="{{user.last_name}}">
+                        <input type="text" name="last_name" id="last-name" class="input-box" value="{{user.last_name}}">
                     </div>
                 </div>
                 <div>
@@ -71,6 +71,8 @@
         <div class="col-span-4 border border-gray-200 p-4 rounded">
             <h4 class="text-gray-800 text-lg mb-4 font-medium uppercase">order summary</h4>
             <div class="space-y-2">
+
+                
                 {% for cart_item in carts %}
                 <div class="flex justify-between">
                     <div>
@@ -100,6 +102,19 @@
             <div class="flex justify-between text-gray-800 font-medium py-3 uppercas">
                 <p class="font-semibold">Total</p>
                 <p>${{total}}</p>
+            </div>
+
+            <div style="display:flex; justify-content:space-evenly; align-items:center;">
+                <h5 class="text-gray-800 font-medium">Method</h5>
+                <select name="method" class="input-box" >
+                    <option value="">select</option>
+                    <option value="card">Bank card</option>
+                    <option value="mpesa">Mpesa</option>
+                    <option value="cod">Cash on delivery</option>
+                    <option value="other">Other                 </option>
+                </select>
+                
+               
             </div>
 
             <div class="flex items-center mb-4 mt-2">

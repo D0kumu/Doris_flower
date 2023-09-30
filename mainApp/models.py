@@ -38,17 +38,18 @@ class Flower(models.Model):
 
 class Orders(models.Model):
     first_name = models.CharField(default=None, max_length=200)
-    last_name = models.CharField(default=None, max_length=200)
-    email = models.CharField(default=None, max_length=200)
-    phone = models.CharField(default=None, max_length=200)
-    company = models.CharField(default=None, max_length=200)
-    region = models.CharField(default=None, max_length=200)
-    city = models.CharField(default=None, max_length=200)
-    adress = models.CharField(default=None, max_length=200)
+    last_name  = models.CharField(default=None, max_length=200)
+    email      = models.CharField(default=None, max_length=200)
+    phone      = models.CharField(default=None, max_length=200)
+    company    = models.CharField(default=None, max_length=200)
+    region     = models.CharField(default=None, max_length=200)
+    city       = models.CharField(default=None, max_length=200)
+    address     = models.CharField(default=None, max_length=200)
     order_date = models.DateTimeField(default=now)
+    delivered = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.id
+        return self.first_name
     
 class Cart(models.Model):
     item = models.ForeignKey(Flower, on_delete=models.CASCADE)
@@ -69,9 +70,9 @@ class Wishlist(models.Model):
         return self.item.name
 
 class Payment(models.Model):
-    order = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    order        = models.ForeignKey(Orders, on_delete=models.CASCADE)
     amount_payed = models.IntegerField()
-    payer = models.ForeignKey(User, on_delete=models.CASCADE)
+    payer        = models.ForeignKey(User, on_delete=models.CASCADE)
     payment_date = models.DateTimeField(default=now)
 
     def __str__(self):

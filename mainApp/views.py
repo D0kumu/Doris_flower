@@ -127,6 +127,30 @@ def checkout(request):
     total = sub_total+shipping
     return render(request, 'main/checkout.html', {"details":details, "sub_total":sub_total, "shipping":shipping, "total":total})
 
+def checkout_form(request):
+    if request.method == "POST":
+        first_name = request.POST["first_name"]
+        last_name  = request.POST["last_name"]
+        email      = request.POST["email"]
+        phone      = request.POST["phone"]
+        company    = request.POST["company"]
+        reigon     = request.POST["reigon"]
+        city       = request.POST["city"]
+        address     = request.POST["adress"]
+
+        new_order = Orders(
+            first_name= first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            company=company,
+            reigon=reigon,
+            city=city,
+            address=address)
+        new_order.save()
+        messages.success(request, "Order placed successfully!, we'll send you na email with your order details")
+    return render(request, 'main/payment.html', {"payments":Payment.objects.all() })
+
 def add_cart(request, flower_id):
     flower = get_object_or_404(Flower, pk=flower_id)
     Cart.objects.get_or_create(user=request.user, item=flower)
@@ -238,5 +262,10 @@ def update_profile(request):
 
 
 def payment(request, flower_id):
-
+    if request.method == "POST":
+        pass
+        # order       
+        # amount_payed
+        # payer       
+        # payment_date
     return render(request, 'main/payment.html', {"payments":Payment.objects.all() })
