@@ -11,25 +11,31 @@
 
 #### clone this git repository
 
-> bash
->> git clone https://github.com/C-o-m-o-n/flowerGirl
+> `git clone https://github.com/C-o-m-o-n/flowerGirl`
 
 ## Usage
+> ### move into the flowerGirl directory
+>> `cd flowerGirl`
 
-> ### cd flowerGirl
->> ### Activate the virtual environment
->>> on windows
----
+> ## Activate the virtual environment
 
->>> on mac/linux
->>>> `source env/bin/activate`
+>> **on windows**
+>>> *if you are using git bash*: `source env/bin/activate`
 
->> ### Install the required dependencies
->>> Python
+>>> *if you are using powershell*: `venv\Scripts\Activate.ps1`
+
+>> **on posix**
+>>> `source env/bin/activate`
+
+>> ## Install the required dependencies
+>>> **Python**
 >>>> `pip install -r requirements.txt`
 
->>> Tailwindcss
+>>> **Tailwindcss**
 >>>> `npm install`
 
->> ### Run the application
+>> ## Run the application
 >>> `python manage.py runserver`
+
+>> ## Preview
+>>> open your browser and paste this url: `127.0.0.1:8000` 
